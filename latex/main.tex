@@ -13,6 +13,8 @@
 
 %font
 \usepackage{tgtermes}
+
+%Automatyczne linki w spisie treści
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 % Set images path
@@ -32,7 +34,7 @@
       \centering
     \end{subfigure}
     \begin{subfigure}{.49\textwidth}
-      \includegraphics[width=.7\linewidth]{WM_RGB.png}
+      \includegraphics[width=.6\linewidth]{WM_RGB.png}
       \centering
     \end{subfigure}
 \end{figure}
@@ -51,11 +53,14 @@ Należy jednak pamiętać, że model został przeszkolony na stosunkowo małym z
 \tableofcontents
 
 \newpage
+\section{Cel}
+Mamy wyższy cel...
+
 \section{Wstęp}
 Jakiś tam wstęp...
 
 \section{Czym jest EKG?}
-Elektrokardiografia \cite{1}  \textit{(eng. electrocardiography)} – zabieg diagnostyczny wykorzystywany w medycynie przede wszystkim w celu rozpoznawania chorób serca.
+\cite{1} Elektrokardiografia \textit{(eng. electrocardiography)} – zabieg diagnostyczny wykorzystywany w medycynie przede wszystkim w celu rozpoznawania chorób serca.
 
 Pomijając EKG wykonywane w czasie operacji na sercu, jest to metoda pośrednia polegająca na rejestracji elektrycznej czynności mięśnia sercowego z powierzchni klatki piersiowej w postaci różnicy potencjałów (napięć) pomiędzy dwiema elektrodami, co graficznie odczytujemy w formie krzywej elektrokardiograficznej, na specjalnym papierze milimetrowym bądź na ekranie monitora.
 
@@ -63,15 +68,29 @@ EKG nie jest niezawodnym kryterium rozpoznania choroby: istnieje możliwość pr
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\linewidth]{EKG-image.jpg}
-    \caption{Elektrokardiogram zdrowego, 21-letniego mężczyzny. Zaznaczony wdech i wydech. \cite{2}}
+    \includegraphics[width=1\linewidth]{EKG_wykres.jpg}
+    \caption{\cite{2} Elektrokardiogram zdrowego, 21-letniego mężczyzny. Zaznaczony wdech i wydech.}
     \label{fig:ekg}
 \end{figure}
 
+\section{Anomalie występujące w sygnałach EKG}
+Anomalie są wszędzie...
 
-\section{Cechy uzyskane z heartpy}
+\section{Zbiór danych wybrany do projektu}
+Ach te dane...
+
+\section{Algorytmy użyte w projekcie}
+Alg Alg Algorytmy...
+
+\section{Biblioteka Heartpy}
+Opis biblioteki...
+
+\section{Filtrowanie szumu z sygnału}
+Ach te filtry...
+
+\section{Cechy uzyskane z Heartpy}
 \begin{itemize}
-    \item BPM — tętno (BPM), obliczana jako średni odstęp między uderzeniami serca w całym analizowanym sygnale (segmencie).
+    \item BPM — uderzenia serca na minutę \textit{(eng. Beats per minute)}, tętno; obliczane jako średni odstęp między uderzeniami serca w całym analizowanym sygnale (segmencie)
     \item IBI — odstęp między kolejnymi uderzeniami serca
     \item SDNN — odchylenie standardowe odstępów RR
     \item SDSD — odchylenie standardowe kolejnych różnic
@@ -86,8 +105,8 @@ EKG nie jest niezawodnym kryterium rozpoznania choroby: istnieje możliwość pr
     \item BREATHING RATE — to częstotliwość oddechu, z którą bicie serca jest silnie związane
 \end{itemize}
 
-\section{Analiza możliwych rozwiązań problemu}
-Można wytrenować wiele różnych rodzajów algorytmów uczenia maszynowego w celu wykrywania anomalii. Do najpopularniejszych metod wykrywania anomalii należą:
+\section{Typowe podejścia do problemu}
+\cite{3} Można wytrenować wiele różnych rodzajów algorytmów uczenia maszynowego w celu wykrywania anomalii. Do najpopularniejszych metod wykrywania anomalii należą:
 
 \subsection{Algorytmy oparte na gęstości}
 Algorytmy oparte na gęstości określają, kiedy wartość odstająca różni się od większego, a zatem gęstszego normalnego zestawu danych, przy użyciu algorytmów takich jak K-najbliższy sąsiad i las izolacyjny.
@@ -100,6 +119,9 @@ Algorytmy sieci Bayesa opracowują modele służące do szacowania prawdopodobie
 
 \subsection{Algorytmy sieci neuronowych}
 Algorytmy sieci neuronowych uczą sieć neuronową przewidywania oczekiwanych szeregów czasowych, a następnie oznaczania odchyleń.
+
+\section{Wnioski}
+Wszyscy kochamy wnioski...
 
 \newpage
 \bibliographystyle{alpha}
