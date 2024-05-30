@@ -16,3 +16,6 @@ __pycache__/
 /dist
 main.spec
 CTPlot.spec
+
+# Data dir
+data/
