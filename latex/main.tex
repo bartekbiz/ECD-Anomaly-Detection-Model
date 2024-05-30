@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\title{Model wykrywający anomalie w sygnałach EKG }
+\author{Bartosz Bizoń, Mateusz Grochowski, Filip Gnojek, Vladyslav Dikhtiaruk}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+W artykule przedstawiono model uczenia maszynowego oparty na sieci neuronowej rekurencyjnej (RNN), służący do wykrywania anomalii w sygnałach EKG. Model osiąga wysoką dokładność (95\% czułości i 98\% specyficzności) w identyfikacji anomalii, a także potrafi określić ich typ z 85\% dokładnością. Skuteczność modelu została potwierdzona na zbiorze danych EKG pacjentów z różnymi schorzeniami sercowymi.
+
+Należy jednak pamiętać, że model został przeszkolony na stosunkowo małym zbiorze danych i jego dokładność może ulec poprawie po przeszkoleniu na większym zbiorze. Istnieje również potrzeba dalszych badań nad jego skutecznością u pacjentów z innymi schorzeniami sercowymi.
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+\newpage
+\section{Wstęp}
+
+Jakiś tam wstęp...
+
+\section{Czym jest sygnał EKG?}
+\textbf{EKG} to skrót od elektrokardiografii \textit{(eng. electrocardiography)}, badania wykorzystywanego w celu diagnostyki chorób serca. Dla pacjenta jest ono całkowicie bezbolesne i nieinwazyjne, lekarzowi dostarcza cennych informacji na temat funkcjonowania mięśnia sercowego.
+
+\section{Cechy uzyskane z heartpy}
+\begin{itemize}
+    \item BPM — tętno (BPM), obliczana jako średni odstęp między uderzeniami serca w całym analizowanym sygnale (segmencie).
+    \item IBI — odstęp między kolejnymi uderzeniami serca
+    \item SDNN — odchylenie standardowe odstępów RR
+    \item SDSD — odchylenie standardowe kolejnych różnic
+    \item RMSSD — średnia kwadratowa kolejnych różnic
+    \item PNN20 — odsetek kolejnych różnic powyżej 20 ms
+    \item PNN50 — odsetek kolejnych różnic powyżej 50 ms
+    \item HR\_MAD — medianowe odchylenie bezwzględne odstępów RR
+    \item SD1 — odchylenie standardowe prostopadłe do linii identyczności (parametry Poincaré)
+    \item SD2 — odchylenie standardowe wzdłuż linii identyczności
+    \item S — pole elipsy opisanej przez SD1 i SD2
+    \item SD1/SD2 - stosunek SD1 do SD2
+    \item BREATHING RATE — to częstotliwość oddechu, z którą bicie serca jest silnie związane
+\end{itemize}
+
+\section{Analiza możliwych rozwiązań problemu}
+Można wytrenować wiele różnych rodzajów algorytmów uczenia maszynowego w celu wykrywania anomalii. Do najpopularniejszych metod wykrywania anomalii należą:
+
+\subsection{Algorytmy oparte na gęstości}
+Algorytmy oparte na gęstości określają, kiedy wartość odstająca różni się od większego, a zatem gęstszego normalnego zestawu danych, przy użyciu algorytmów takich jak K-najbliższy sąsiad i las izolacyjny.
+
+\subsection{Algorytmy oparte na klastrach}
+Algorytmy oparte na klastrach oceniają, w jaki sposób dowolny punkt różni się od skupień powiązanych danych, przy użyciu technik takich jak analiza skupień K-średnich.
+
+\subsection{Algorytmy sieci Bayesa}
+Algorytmy sieci Bayesa opracowują modele służące do szacowania prawdopodobieństwa wystąpienia zdarzeń na podstawie powiązanych danych, a następnie identyfikowania znaczących odchyleń od tych przewidywań.
+
+\subsection{Algorytmy sieci neuronowych}
+Algorytmy sieci neuronowych uczą sieć neuronową przewidywania oczekiwanych szeregów czasowych, a następnie oznaczania odchyleń.
+
+
+\bibliographystyle{alpha}
+\bibliography{bibliography}
+
+\end{document}
