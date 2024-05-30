@@ -1,0 +1,18 @@
+# MacOS files
+*.DS_Store
+
+# JetBrains files
+.idea/
+
+# VS Code files
+.vscode
+
+# Python virtual env
+.venv/
+__pycache__/
+
+# Build dir
+/build
+/dist
+main.spec
+CTPlot.spec
