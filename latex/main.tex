@@ -1,20 +1,43 @@
-\documentclass[12pt]{article}
+\documentclass[12pt,a4paper]{article}
 
+% Use Packages
 \usepackage[polish]{babel}
 \usepackage[T1]{fontenc}
-
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
-
-% Useful packages
 \usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{textcomp, gensymb}
 \usepackage{graphicx}
+\usepackage{float}
+\usepackage{subcaption}
+
+%font
+\usepackage{tgtermes}
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
-\title{Model wykrywający anomalie w sygnałach EKG }
-\author{Bartosz Bizoń, Mateusz Grochowski, Filip Gnojek, Vladyslav Dikhtiaruk}
+% Set images path
+\graphicspath{ {./images/}}
+
+\title{\huge{Model wykrywający anomalie w sygnałach EKG } }
+\author{Bartosz Bizoń, Mateusz Grochowski, Filip Gnojek, Vladyslav Dikhtiaruk
+\and \small{Opiekun pracy mgr. inż. Marek Lewiński}}
+\date{Semestr VI \\ Rok akademicki 2023/2024}
+
 
 \begin{document}
+\pagenumbering{gobble}
+\begin{figure}
+    \begin{subfigure}{.49\textwidth}
+      \includegraphics[width=.7\linewidth]{images/PK_POZIOM_RGB.png}
+      \centering
+    \end{subfigure}
+    \begin{subfigure}{.49\textwidth}
+      \includegraphics[width=.7\linewidth]{WM_RGB.png}
+      \centering
+    \end{subfigure}
+\end{figure}
 \maketitle
+
 
 \begin{abstract}
 W artykule przedstawiono model uczenia maszynowego oparty na sieci neuronowej rekurencyjnej (RNN), służący do wykrywania anomalii w sygnałach EKG. Model osiąga wysoką dokładność (95\% czułości i 98\% specyficzności) w identyfikacji anomalii, a także potrafi określić ich typ z 85\% dokładnością. Skuteczność modelu została potwierdzona na zbiorze danych EKG pacjentów z różnymi schorzeniami sercowymi.
@@ -23,15 +46,28 @@ Należy jednak pamiętać, że model został przeszkolony na stosunkowo małym z
 \end{abstract}
 
 \newpage
+
+\pagenumbering{arabic}
 \tableofcontents
 
 \newpage
 \section{Wstęp}
-
 Jakiś tam wstęp...
 
-\section{Czym jest sygnał EKG?}
-\textbf{EKG} to skrót od elektrokardiografii \textit{(eng. electrocardiography)}, badania wykorzystywanego w celu diagnostyki chorób serca. Dla pacjenta jest ono całkowicie bezbolesne i nieinwazyjne, lekarzowi dostarcza cennych informacji na temat funkcjonowania mięśnia sercowego.
+\section{Czym jest EKG?}
+Elektrokardiografia \cite{1}  \textit{(eng. electrocardiography)} – zabieg diagnostyczny wykorzystywany w medycynie przede wszystkim w celu rozpoznawania chorób serca.
+
+Pomijając EKG wykonywane w czasie operacji na sercu, jest to metoda pośrednia polegająca na rejestracji elektrycznej czynności mięśnia sercowego z powierzchni klatki piersiowej w postaci różnicy potencjałów (napięć) pomiędzy dwiema elektrodami, co graficznie odczytujemy w formie krzywej elektrokardiograficznej, na specjalnym papierze milimetrowym bądź na ekranie monitora.
+
+EKG nie jest niezawodnym kryterium rozpoznania choroby: istnieje możliwość prawidłowego elektrokardiogramu przy schorzeniach kardiologicznych oraz nieprawidłowy zapis czynności elektrycznej przy prawidłowym stanie klinicznym. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{EKG-image.jpg}
+    \caption{Elektrokardiogram zdrowego, 21-letniego mężczyzny. Zaznaczony wdech i wydech. \cite{2}}
+    \label{fig:ekg}
+\end{figure}
+
 
 \section{Cechy uzyskane z heartpy}
 \begin{itemize}
@@ -65,7 +101,7 @@ Algorytmy sieci Bayesa opracowują modele służące do szacowania prawdopodobie
 \subsection{Algorytmy sieci neuronowych}
 Algorytmy sieci neuronowych uczą sieć neuronową przewidywania oczekiwanych szeregów czasowych, a następnie oznaczania odchyleń.
 
-
+\newpage
 \bibliographystyle{alpha}
 \bibliography{bibliography}
 
