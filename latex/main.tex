@@ -12,14 +12,9 @@
 \usepackage{subcaption}
 \usepackage{csquotes}
 \usepackage{xurl}
-
-%\usepackage[backend=bibtex,style=numeric]{biblatex}
-%\addbibresource{bibliography.bib}
-
-%font
 \usepackage{tgtermes}
 
-%Automatyczne linki w spisie treści
+% Automatic bibliography
 \usepackage[colorlinks=true, allcolors=blue]{hyperref}
 
 % Set images path
@@ -47,9 +42,6 @@
 
 
 \begin{abstract} 
-% W artykule przedstawiono przegląd modeli uczenia maszynowego służących do wykrywania anomalii w sygnałach EKG. Wykorzystano cztery modele: \textbf{LSTM} (z dokładnością identyfikacji anomalii na poziomie 72\%), \textbf{Gradient Boosting} (z dokładnością identyfikacji anomalii na poziomie 94\%), \textbf{XGBoosting} (z dokładnością identyfikacji anomalii na poziomie 98\%), \textbf{AdaBoosting} (z dokładnością identyfikacji anomalii na poziomie 87\%)
- %Skuteczność modeli została potwierdzona na zbiorze danych EKG pacjentów z różnymi schorzeniami sercowymi.
-
 Celem niniejszej pracy było opracowanie i ocena różnych modeli do analizy danych EKG, w celu znalezienia najbardziej efektywnego narzędzia do ich przetwarzania i interpretacji. W celu znalezienia najlepszego rozwiązania, przeprowadziliśmy testy czterech modeli: LSTM, Gradient Boosting Classifier, XGBoost i AdaBoost. Model XGBoost osiągnął najwyższą dokładność na danych treningowych na poziomie 97\%, co jest dobrym wynikiem, ale może sugerować przetrenowanie. Ostatecznie po konsultacji z opiekunem pracy, zdecydowaliśmy, że model LSTM jest najodpowiedniejszy do dalszych prac, dzięki swojej zdolności do analizy szeregów czasowych. Model LSTM osiągał 73\% dokładności, ale wierzymy, że najlepiej sprawdził się w prawdziwych sytuacjach.
 
 \end{abstract}
